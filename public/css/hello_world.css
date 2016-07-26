@@ -1,0 +1,63 @@
+body {
+	background-image: url(/img/hello.png);
+	background-size: 500px;
+	background-repeat: no-repeat;
+	background-position: top, right;
+	background-attachment: fixed;
+	background-color: transparent;
+	font-family: 'Oswald', sans-serif;
+}
+
+section {
+	width: 500px;
+	border: 1px solid black;
+	margin: 20px;
+}
+
+
+#quote {
+	float: right;
+}
+
+#foods {
+	float: right;
+}
+
+h1 {
+	color: #00F;
+	text-decoration: underline;
+	font-size: 4em;
+}
+
+h2 {
+	color: #00F;
+	text-decoration: underline;
+}
+
+ul {
+	list-style: circle;
+}
+
+ol {
+	list-style: upper-roman;
+}
+
+a:hover {
+	color: #fa871f;
+}
+
+a:active {
+	color: #ab4040;
+	font-size: 1.4em;
+}
+
+th {
+	text-align: center;
+	
+	border-spacing: 5px;
+}
+
+td {
+	text-align: center;
+	border: 1px solid black;
+}
