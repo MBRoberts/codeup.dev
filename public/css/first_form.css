@@ -1,0 +1,77 @@
+header {
+	font-size: 2em;
+	text-align: center;
+	background-color: #FFF;
+	background-attachment: fixed; scroll;
+	text-decoration: underline overline;
+	margin: 0px auto;
+	height: 164px;
+	width:100%;
+	border-bottom: .1em solid black;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+}
+
+nav {
+	background-color: #FFF;
+	border-right: .1em solid black;
+	padding: 20px;
+	text-align: left;
+	font-size: 1.5em;
+	position: fixed;
+	height: 100%;
+	width: 20%;
+	top: 164px;
+	left: 0px;
+}
+
+nav a:visited{
+	color: #234662;
+}
+
+nav a:hover {
+	color: #984379
+}
+
+#main {
+	margin-top: 68px;
+	/*background-image: url(/img/sayagata-400px.png);*/
+	background-attachment: fixed; scroll;
+	padding: 50px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100,000000+100&0.65+0,0+71 */
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 71%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(71%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0))); /* Chrome4-9,Safari4-5 */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 71%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: -o-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 71%,rgba(0,0,0,0) 100%); /* Opera 11.10-11.50 */
+	background: -ms-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 71%,rgba(0,0,0,0) 100%); /* IE10 preview */
+	background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 71%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+
+
+.form{
+	background-color: #FFF;
+	margin: 4em auto;
+	width: 350px;
+	padding: 10px;
+	border: 1px solid grey;
+	border-radius: 50px;
+	border-left: 5px solid grey;
+	border-bottom: 5px solid grey;
+	border-right: 1px solid grey;
+}
+
+.form h2{
+	color: #987312;
+	text-decoration: underline;
+}
+
+.login button {
+	float: right;
+	width: 175px;
+	font-size: 1.25em;
+}
+
+
