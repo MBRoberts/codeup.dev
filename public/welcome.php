@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +22,6 @@
 </head>
 
 <body>
-
 	<!-- Navigation -->
 	<nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
 		<div class="container topnav">
@@ -57,20 +55,20 @@
 					<div class="intro-message">
 						<img src="/img/profile.png" class="img-circle">
 						<h1>Ben Roberts</h1>
-						<h3>Mikebenroberts@gmail.com</h3>
+						<h3><a href="mailto:mikebenroberts@gmail.com" class="contact-email">Mikebenroberts@gmail.com</a></h3>
 						<hr class="intro-divider">
 						<ul class="list-inline intro-social-buttons">
 							<li>
-								<a href="https://twitter.com/mikebenroberts" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+								<a href="https://twitter.com/mikebenroberts" class="btn btn-default btn-lg" target="_blank"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
 							</li>
 							<li>
-								<a href="https://www.facebook.com/mbenroberts" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Facebook</span></a>
+								<a href="https://www.facebook.com/mbenroberts" class="btn btn-default btn-lg" target="_blank"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Facebook</span></a>
 							</li>
 							<li>
-								<a href="https://github.com/MBRoberts" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+								<a href="https://github.com/MBRoberts" class="btn btn-default btn-lg" target="_blank"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
 							</li>
 							<li>
-								<a href="https://www.linkedin.com/" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+								<a href="https://www.linkedin.com/" class="btn btn-default btn-lg" target="_blank"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
 							</li>
 						</ul>
 					</div><!-- /.intro-message -->
@@ -88,8 +86,8 @@
 				<div class="col-lg-5 col-sm-6">
 					<hr class="section-heading-spacer">
 					<div class="clearfix"></div>
-					<h2 class="section-heading">Bostonian<br></h2>
-					<p class="lead">I was raised in Massachusetts on the south shore of Boston.
+					<h2 class="section-heading">Bio<br></h2>
+					<p class="lead">I am a recent transplant to San Antonio from Boston, MA. I moved to Texas for several reasons: 1) To escape the snow 2) Be closer to family and 3) To start a new career. I am currently studying to become a Full-Stack Developer.
 				</div>
 				<div class="col-lg-5 col-lg-offset-2 col-sm-6">
 					<img class="img-responsive" src="img/bostongif.gif" alt="Boston">
@@ -105,10 +103,10 @@
 					<hr class="section-heading-spacer">
 					<div class="clearfix"></div>
 					<h2 class="section-heading">Student at Codeup</h2>
-					<p class="lead"><a href="http://codeup.com/">Codeup</a> is a career accelerator that prepares you to become a software developer, even if you have no prior coding experience. With a 10 to 1 student to instructor ratio and a focus on real world project based learning, our graduates typically get hired within 6 months and increase their earning power by $17K..</p>
+					<p class="lead"><a href="http://codeup.com/" target="_blank">Codeup</a> is a career accelerator that prepares you to become a software developer, even if you have no prior coding experience. With a 10 to 1 student to instructor ratio and a focus on real world project based learning, our graduates typically get hired within 6 months and increase their earning power by $17K..</p>
 				</div>
 				<div class="col-lg-5 col-sm-pull-6  col-sm-6">
-					<a href="http://codeup.com/"><img class="img-responsive" src="img/codeup.png" alt="Codeup"></a>
+					<a href="http://codeup.com/" target="_blank"><img class="img-responsive" src="img/codeup.png" alt="Codeup"></a>
 				</div>
 			</div><!-- /.row -->
 		</div><!-- /.container -->
@@ -121,10 +119,10 @@
 					<hr class="section-heading-spacer">
 					<div class="clearfix"></div>
 					<h2 class="section-heading">Member of Geekdom</h2>
-					<p class="lead"><a href="http://geekdom.com/">Geekdom</a> is a new kind of collaborative coworking space where Entrepreneurs, Technologists, Developers, Makers & Creatives help each other build businesses & other cool things together </p>
+					<p class="lead"><a href="http://geekdom.com/" target="_blank">Geekdom</a> is a new kind of collaborative coworking space where Entrepreneurs, Technologists, Developers, Makers & Creatives help each other build businesses & other cool things together </p>
 				</div>
 				<div class="col-lg-5 col-lg-offset-2 col-sm-6">
-					<a href="http://geekdom.com/"><img class="img-responsive" src="img/geekdom.jpg" alt="Geekdom"></a>
+					<a href="http://geekdom.com/" target="_blank"><img class="img-responsive" src="img/geekdom.jpg" alt="Geekdom"></a>
 				</div>
 			</div><!-- /.row -->
 		</div><!-- /.container -->
@@ -136,21 +134,22 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
-					<h2>Connect to Ben Roberts:</h2>
+					<h2>Connect to Ben Roberts:</h2><br>
+					<a href="mailto:mikebenroberts@gmail.com" class="contact-email">MikeBenRoberts@gmail.com</a>
 				</div>
 				<div class="col-lg-6">
 					<ul class="list-inline banner-social-buttons">
 						<li>
-							<a href="https://twitter.com/mikebenroberts" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+							<a href="https://twitter.com/mikebenroberts" class="btn btn-default btn-lg" target="_blank"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
 						</li>
 						<li>
-							<a href="https://www.facebook.com/mbenroberts" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+							<a href="https://www.facebook.com/mbenroberts" class="btn btn-default btn-lg" target="_blank"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
 						</li>
 						<li>
-							<a href="https://github.com/MBRoberts" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+							<a href="https://github.com/MBRoberts" class="btn btn-default btn-lg" target="_blank"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
 						</li>
 						<li>
-							<a href="https://linkedin.com" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+							<a href="https://linkedin.com" class="btn btn-default btn-lg" target="_blank"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
 						</li>
 					</ul>
 				</div><!-- /.dol-lg-6 -->
@@ -173,7 +172,7 @@
 						</li>
 						<li class="footer-menu-divider">&sdot;</li>
 						<li>
-							<a href="#services">Services</a>
+							<a href="/resume.html">Resume</a>
 						</li>
 						<li class="footer-menu-divider">&sdot;</li>
 						<li>
