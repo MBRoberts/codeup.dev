@@ -39,7 +39,7 @@
 						<a href="/resume.html#work">Portfolio</a>
 					</li>
 					<li>
-						<a href="/resume.html">Resume</a>
+						<a href="/resume.php">Resume</a>
 					</li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
@@ -172,7 +172,7 @@
 						</li>
 						<li class="footer-menu-divider">&sdot;</li>
 						<li>
-							<a href="/resume.html">Resume</a>
+							<a href="/resume.php">Resume</a>
 						</li>
 						<li class="footer-menu-divider">&sdot;</li>
 						<li>
