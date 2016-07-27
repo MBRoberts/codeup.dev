@@ -1,19 +1,19 @@
 "use strict";
 
-var testone = 80;
-var testtwo = 70;
-var testthree = 95;
+var testone = Math.floor(Math.random()* 100);
+var testtwo = Math.floor(Math.random()* 100);
+var testthree = Math.floor(Math.random()* 100);
+var cameron = Math.floor(Math.random()* 500);
+var ryan = Math.floor(Math.random()* 500);
+var george = Math.floor(Math.random()* 500);
+var flipACoin = Math.floor(Math.random()* 2);
 var message;
-var cameron = 180;
-var ryan = 250;
-var george = 320;
 var payment;
 var discount;
-var flipACoin = Math.floor(Math.random()* 2);
 
 
 
-// Student's Grades
+//<-------------- Student's Grades ---------------->
 if (((testone + testtwo + testthree) / 3) >= 80) {
 	message = "You're awesome!";
 } else {
@@ -24,7 +24,7 @@ console.log(message);
 
 
 
-// HEB Discount
+//<----------- HEB Discount ------------------>
 
 //Cameron
 if (cameron >= 200) {
@@ -37,10 +37,10 @@ if (cameron >= 200) {
 if (payment === cameron) {
 	message = "Cameron bought $" + cameron.toFixed(2) + ", no discount was applied. Final payment: $" + cameron.toFixed(2);
 }else {
-	message = "Cameron bought $" + cameron.toFixed(2) + ", discount was applied. Final payment: $" + payment.toFixed(2);
+	message = "Cameron bought $" + cameron.toFixed(2) + ", discount was applied. Final payment: $" + payment.toFixed(2) + "\nwith a discount of $" + discount.toFixed(2);
 };
 
-console.log(message);
+console.log(message); 
 
 // Ryan
 if (ryan >= 200) {
@@ -53,7 +53,7 @@ if (ryan >= 200) {
 if (payment === ryan) {
 	message = "Ryan bought $" + ryan.toFixed(2) + ", no discount was applied. Final payment: $" + ryan.toFixed(2);
 }else {
-	message = "Ryan bought $" + ryan.toFixed(2) + ", discount was applied. Final payment: $" + payment.toFixed(2);
+	message = "Ryan bought $" + ryan.toFixed(2) + ", discount was applied. Final payment: $" + payment.toFixed(2) + "\nwith a discount of $" + discount.toFixed(2);
 };
 
 console.log(message);
@@ -69,14 +69,14 @@ if (george >= 200) {
 if (payment === george) {
 	message = "George bought $" + george.toFixed(2) + ", no discount was applied. Final payment: $" + george.toFixed(2);
 }else {
-	message = "George bought $" + george.toFixed(2) + ", discount was applied. Final payment: $" + payment.toFixed(2);
+	message = "George bought $" + george.toFixed(2) + ", discount was applied. Final payment: $" + payment.toFixed(2) + "\nwith a discount of $" + discount.toFixed(2);
 };
 
 console.log(message);
 
 
 
-// Isaac's Dilemma
+//<------------------ Isaac's Dilemma------------------>
 var message = (flipACoin) ? "Buy a House!" : "Buy a Car!";
 
 console.log(message);
