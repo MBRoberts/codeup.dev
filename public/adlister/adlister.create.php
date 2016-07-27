@@ -5,21 +5,19 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="">
-		<meta name="author" content="">
+		<meta name="description" content="Adlister Excercise">
+		<meta name="author" content="Ben Roberts">
 
 		<title>Post AD</title>
 
-		<!-- Bootstrap Core CSS -->
+<!-- Bootstrap Core CSS -->
 		<link href="/../css/bootstrap.min.css" rel="stylesheet">
 		<link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'>
 
-		<!-- Custom CSS -->
+<!-- Custom CSS -->
 		<link href="css/heroic-features.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/adlister.create.css">
-
-		<!-- Javascript -->
-		<script src="js/adlister.create.js"></script>
+		<link rel="stylesheet" href="/css/adlister.create.css">
+		
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -28,7 +26,7 @@
 		<![endif]-->
 	</head>
 	<body>
-		<!-- Navigation -->
+<!-- Navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -62,13 +60,13 @@
 			</div>
 			<!-- /.container -->
 		</nav>
-	<!-- Page Content -->
+<!-- Page Content -->
 		<div class="container">
-			<form class="well form-horizontal" action="" method="get"  id="contact_form">
+			<form class="well form-horizontal" action="" method="POST"  id="contact_form">
 				<fieldset>
-	<!-- Form Heading -->
+<!-- Form Heading -->
 					<legend>Post A Listing!</legend>
-	<!-- Text input name -->
+<!-- Text input name -->
 					<div class="form-group">
 						<label class="col-md-4 control-label">First Name</label>  
 						<div class="col-md-4 inputGroupContainer">
@@ -78,7 +76,7 @@
 							</div><!-- /.input-group -->
 						</div><!-- /.col-md-4 inputGroupContainer -->
 					</div><!-- /.form-group -->
-	<!-- Text input name -->
+<!-- Text input name -->
 					<div class="form-group">
 						<label class="col-md-4 control-label" >Last Name</label> 
 						<div class="col-md-4 inputGroupContainer">
@@ -88,7 +86,7 @@
 							</div><!-- /.input-group -->
 						</div><!-- /.col-md-4 inputGroupContainer -->
 					</div><!-- /.form-group -->
-	<!-- Text input email -->
+<!-- Text input email -->
 				   <div class="form-group">
 						<label class="col-md-4 control-label">E-Mail</label>  
 						<div class="col-md-4 inputGroupContainer">
@@ -98,7 +96,7 @@
 							</div><!-- /.input-group -->
 						</div><!-- /.col-md-4 inputGroupContainer -->
 					</div><!-- /.form-group -->
-	<!-- Text input movie -->   
+<!-- Text input movie -->   
 					<div class="form-group">
 						<label class="col-md-4 control-label">Movie</label>  
 						<div class="col-md-4 inputGroupContainer">
@@ -108,7 +106,7 @@
 							 </div><!-- /.input-group -->
 						</div><!-- /.col-md-4 inputGroupContainer -->
 					</div><!-- /.form-group -->
-	<!-- Text input prop -->
+<!-- Text input prop -->
 					<div class="form-group">
 						<label class="col-md-4 control-label">Prop Used</label>  
 						<div class="col-md-4 inputGroupContainer">
@@ -118,7 +116,7 @@
 							</div><!-- /.input-group -->
 						</div><!-- /.col-md-4 inputGroupContainer -->
 					</div><!-- /.form-group -->
-	<!-- Text input price -->
+<!-- Text input price -->
 					<div class="form-group">
 						<label class="col-md-4 control-label">Price</label>  
 						<div class="col-md-4 inputGroupContainer">
@@ -128,7 +126,7 @@
 							</div><!-- /.input-group -->
 						</div><!-- /.col-md-4 inputGroupContainer -->
 					</div><!-- /.form-group -->
-	<!-- File input image -->
+<!-- File input image -->
 					<div class="form-group">
 						<label class="col-md-4 control-label">Upload Image</label>  
 						<div class="col-md-4 inputGroupContainer">
@@ -138,7 +136,7 @@
 							</div><!-- /.input-group -->
 						</div><!-- /.col-md-4 inputGroupContainer -->
 					</div><!-- /.form-group -->
-	<!-- radio checks shipping -->
+<!-- radio checks shipping -->
 					<div class="form-group">
 						<label class="col-md-4 control-label">Shipping Included?</label>
 						<div class="col-md-4">
@@ -150,7 +148,7 @@
 							</div><!-- /.radio -->
 						</div><!-- /.col-md-4 -->
 					</div><!-- /.form-group -->
-	<!-- Text area description -->
+<!-- Text area description -->
 					<div class="form-group">
 						<label class="col-md-4 control-label">Item Description</label>
 						<div class="col-md-4 inputGroupContainer">
@@ -160,11 +158,11 @@
 							</div><!-- /.input-group -->
 						</div><!-- /.col-md-4 inputGroupContainer -->
 					</div><!-- /.form-group -->
-	<!-- Success message -->
+<!-- Success message -->
 					<div class="alert alert-success" role="alert" id="success_message">
 						Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for your posting, we will get back to you shortly.
 					</div>
-	<!-- Button -->
+<!-- Button -->
 					<div class="form-group">
 						<label class="col-md-4 control-label"></label>
 						<div class="col-md-4">
@@ -175,10 +173,9 @@
 			</form>
 		</div><!-- /.container -->
 		<hr>
-	<!-- Contact -->
-		<a  name="contact"></a>
-		<div class="container">
-			<div class="banner">
+<!-- Contact -->
+		<div class="banner">
+			<div class="container">
 				<div class="row">
 					<div class="col-lg-6">
 						<h2>Contact Adlister:</h2><br>
@@ -203,9 +200,7 @@
 				</div><!-- /.row -->
 			</div><!-- /.container -->
 		</div><!-- /.banner -->
-
-
-	<!-- Footer -->
+<!-- Footer -->
 		<footer>
 			<div class="container">
 				<div class="row">
@@ -233,9 +228,10 @@
 			</div><!-- /.container -->
 		</footer>
 
-	<!-- jQuery -->
-		<script src="js/jquery.js"></script>
-	<!-- Bootstrap Core JavaScript -->
-		<script src="js/bootstrap.min.js"></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
+
+        <script src="js/adlister.create.js"></script>
 	</body>
 </html>
