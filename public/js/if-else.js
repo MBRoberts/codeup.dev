@@ -1,11 +1,19 @@
 "use strict";
 
-// Student's Grades
 var testone = 80;
 var testtwo = 70;
 var testthree = 95;
 var message;
+var cameron = 180;
+var ryan = 250;
+var george = 320;
+var payment;
+var discount;
+var flipACoin = Math.floor(Math.random()* 2);
 
+
+
+// Student's Grades
 if (((testone + testtwo + testthree) / 3) >= 80) {
 	message = "You're awesome!";
 } else {
@@ -15,12 +23,8 @@ if (((testone + testtwo + testthree) / 3) >= 80) {
 console.log(message);
 
 
-// HEB offer
-var cameron = 180;
-var ryan = 250;
-var george = 320;
-var payment;
-var discount;
+
+// HEB Discount
 
 //Cameron
 if (cameron >= 200) {
@@ -70,9 +74,9 @@ if (payment === george) {
 
 console.log(message);
 
-// Isaac's Dilemma
-var flipACoin = Math.floor(Math.random()* 2)
 
+
+// Isaac's Dilemma
 var message = (flipACoin) ? "Buy a House!" : "Buy a Car!";
 
 console.log(message);
