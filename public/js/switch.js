@@ -1,6 +1,9 @@
+'use strict';
+
 // Variables
 var luckyNumber = Math.floor(Math.random()* 6);
 var monthNum = Math.floor(Math.random()* 12) + 1;
+var receipt = 60;
 var discount;
 var finalPay;
 var message;
@@ -26,8 +29,8 @@ switch (luckyNumber) {
 		discount = 1;
 }
 
-discount *= 60;
-finalPay = 60 - discount;
+discount *= receipt;
+finalPay = receipt - discount;
 
 console.log ("Your Lucky Number is: " + luckyNumber);
 console.log ("You owe: $" + finalPay.toFixed(2) + "\n\n");
