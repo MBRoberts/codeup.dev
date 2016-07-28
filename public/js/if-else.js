@@ -30,15 +30,11 @@ console.log(message);
 if (cameron >= 200) {
 	discount = cameron * .35;
 	payment = cameron - discount;
+	message = "Cameron bought $" + cameron.toFixed(2) + ", discount was applied. Final payment: $" + payment.toFixed(2) + "\nwith a discount of $" + discount.toFixed(2);
 } else {
 	payment = cameron;
+	message = "Cameron bought $" + cameron.toFixed(2) + ". Final payment: $" + cameron.toFixed(2) + ", no discount was applied";
 }
-
-if (payment === cameron) {
-	message = "Cameron bought $" + cameron.toFixed(2) + ", no discount was applied. Final payment: $" + cameron.toFixed(2);
-}else {
-	message = "Cameron bought $" + cameron.toFixed(2) + ", discount was applied. Final payment: $" + payment.toFixed(2) + "\nwith a discount of $" + discount.toFixed(2);
-};
 
 console.log(message); 
 
@@ -46,15 +42,11 @@ console.log(message);
 if (ryan >= 200) {
 	discount = ryan * .35;
 	payment = ryan - discount;
+	message = "Ryan bought $" + ryan.toFixed(2) + ", discount was applied. Final payment: $" + payment.toFixed(2) + "\nwith a discount of $" + discount.toFixed(2);
 } else {
 	payment = ryan;
+	message = "Ryan bought $" + ryan.toFixed(2) + ". Final payment: $" + ryan.toFixed(2) + ", no discount was applied";
 }
-
-if (payment === ryan) {
-	message = "Ryan bought $" + ryan.toFixed(2) + ", no discount was applied. Final payment: $" + ryan.toFixed(2);
-}else {
-	message = "Ryan bought $" + ryan.toFixed(2) + ", discount was applied. Final payment: $" + payment.toFixed(2) + "\nwith a discount of $" + discount.toFixed(2);
-};
 
 console.log(message);
 
@@ -62,15 +54,11 @@ console.log(message);
 if (george >= 200) {
 	discount = george * .35;
 	payment = george - discount;
+	message = "George bought $" + george.toFixed(2) + ", discount was applied. Final payment: $" + payment.toFixed(2) + "\nwith a discount of $" + discount.toFixed(2);
 } else {
 	payment = george;
+	message = "George bought $" + george.toFixed(2) + ". Final payment: $" + george.toFixed(2) + ", no discount was applied";
 }
-
-if (payment === george) {
-	message = "George bought $" + george.toFixed(2) + ", no discount was applied. Final payment: $" + george.toFixed(2);
-}else {
-	message = "George bought $" + george.toFixed(2) + ", discount was applied. Final payment: $" + payment.toFixed(2) + "\nwith a discount of $" + discount.toFixed(2);
-};
 
 console.log(message);
 
