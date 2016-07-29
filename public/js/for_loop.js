@@ -4,23 +4,28 @@ var randNum = Math.floor(Math.random() * 10) + 1;
 var answer;
 var rng;
 
-// First Exercise
+console.log ("First Exercise\n ");
+
 for (var i = 1; i <= 10; i++) {
-		if (i != 10){
-			printedNum = i.toString();
-		} else {
-			printedNum = '0';
+		switch (i) {
+			case 10 :
+				printedNum = '0';
+				break;
+			default :
+				printedNum = i.toString();
+				break;
 		}
 		console.log (printedNum.repeat(i));
 }
 
-// Second Exercise	
+console.log (" \nSecond Exercise\n ");
+
 for (i = 1; i <= 10; i++) {
 	answer = randNum * i;
 	console.log (randNum + ' x ' + i + ' = ' + answer);
 }
 
-// Third Exercise
+console.log (" \nThird Exercise\n ");
 for (i = 1; i <= 10; i++) {
 	rng = Math.floor(Math.random() * 180) + 20;
 	switch (rng % 2) {
