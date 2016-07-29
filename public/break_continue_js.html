@@ -1,0 +1,27 @@
+<DOCTYPE html>
+
+<html>
+	<head>
+		<title>Break Continue Exercise</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+
+			for (var rng = Math.floor((Math.random()*50)+1) ; rng % 2 === 0 ; rng = Math.floor((Math.random()*50)+1)){
+			}
+			console.log ('My random number is ' + rng + '\n ');
+
+			for (var i = 1 ; i <= 50 ; i++) {
+				 if (i === rng){
+				 	console.log ('Yikes, you skipped ' + rng)
+				 	continue;
+				 } else if (i % 2 === 0) {
+        			continue;
+   				 }
+   				 console.log ('Here is an odd number: ' + i);
+			}	
+
+		</script>
+	</body>
+</html>
