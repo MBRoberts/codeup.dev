@@ -1,0 +1,31 @@
+<DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset ="utf-8">
+		<title>99 Bottles of Beer</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			"use strict";
+			
+			do{
+				var numPeople = Number(prompt('How many people are drinking?'));
+				console.clear();
+				for (var i = 99 ; i > 0 ; i -= numPeople) {
+					
+					if (i < numPeople){
+						
+						console.log ("We need more beer on the wall");
+
+					} else {
+							console.log (i + " bottles of beer on the wall");
+							console.log ("\tTake " + numPeople + " down, pass them around");
+							console.log ("\t\t" + (i - numPeople) + " bottles of beer on the wall\n ");
+					}
+				}
+			} while (confirm("Another Round?") == true);
+		</script>
+	</body>
+</html>
