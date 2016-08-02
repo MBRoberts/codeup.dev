@@ -1,6 +1,6 @@
 "use strict";
 
-var myNameIs = 'Bob'; // TODO: Fill in your name here.
+var myNameIs = 'Ben'; // TODO: Fill in your name here.
 
 // TODO:
 // Create a function called 'sayHello' that takes a parameter 'name'.
