@@ -19,6 +19,18 @@
 		return number;
 	}
 
+	function isNumeric(firstNum) {
+		switch (isNaN(firstNum)){
+			case (true) :
+				alert("I can't do math without any numbers!");
+				return true;
+				break;
+			case (false) :
+				return false;
+				break;
+		}
+	}
+
 	function sum(firstNum , secondNum) {
 			return firstNum + secondNum;
 	}
@@ -33,7 +45,7 @@
 
 	function divide(firstNum, secondNum) {
 			if (firstNum === 0 || secondNum === 0) {
-				console.log ("Dividing with Zero doesn't make sense!");
+				return "without meaning";
 			} else {
 				return firstNum / secondNum;
 			}
@@ -47,23 +59,13 @@
 		return sum(square(firstNum), square(secondNum));
 	}
 
-	function isNumeric(firstNum) {
-		switch (isNaN(firstNum)){
-			case (true) :
-				alert("I can't do math without any numbers!");
-				return true;
-				break;
-			case (false) :
-				return false;
-				break;
-		}
-	}
 
 	function averageOfThree(firstNum, secondNum, thirdNumber) {
 		return (firstNum + secondNum + thirdNumber)/3;
 	}
 
 // Procedural Code---------------------------------------------------------->
+	
 	do {
 		numberCheck = prompt('Type in the number of the math you would like to do: \n\t1. Addition \n\t2. Subtraction \n\t3. Multiplication \n\t4. Division \n\t5. Square \n\t6. Sum of two Squares \n\t7. Average of Three Numbers');
 		switch (numberCheck) {
@@ -112,7 +114,7 @@
 			default :
 				alert("TYPE THE NUMBER!!!");
 				break;
-		}
+		} // switch
 	}while (numberCheck !== 'ok');
 })();
 
