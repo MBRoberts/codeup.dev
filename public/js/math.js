@@ -1,79 +1,120 @@
 "use strict";
 
-function userInput(){
-	do {
-		var number = Number(prompt("Enter your number:"));
-	} while (isNumeric(number) == true);
+(function(){
 
-	return number;
-}
+// Global Variables------------------------>
 
-function sum(firstNum , secondNum) {
-		return firstNum + secondNum;
-}
+	var firstNum;
+	var secondNum;
+	var	thirdNumber;
+	var numberCheck;
 
-function subtract(firstNum, secondNum) {
-		return firstNum - secondNum;
-}
+// Function Definitions---------------------------------->
 
-function multiply(firstNum, secondNum) {
-		return firstNum * secondNum;
-}
+	function userInput(){
+		do {
+			var number = Number(prompt("Enter your number:"));
+		} while (isNumeric(number) == true);
 
-function divide(firstNum, secondNum) {
-		if (firstNum === 0 || secondNum === 0) {
-			console.log ("Dividing with Zero doesn't make sense!");
-		} else {
-			return firstNum / secondNum;
-		}
-}
-
-function square(number) {
-	return multiply(number, number);
-}
-
-function sumOfTwoSquares(firstNum, secondNum) {
-	return sum(square(firstNum), square(secondNum));
-}
-
-function isNumeric(firstNum) {
-	switch (isNaN(firstNum)){
-		case (true) :
-			alert("I can't do math without any numbers!");
-			return true;
-			break;
-		case (false) :
-			return false;
-			break;
+		return number;
 	}
-}
 
-function averageOfThree(firstNum, secondNum, thirdNumber) {
-	return (firstNum + secondNum + thirdNumber)/3;
-}
+	function sum(firstNum , secondNum) {
+			return firstNum + secondNum;
+	}
 
-if (confirm("Hit 'OK' if you want to do math with 2 numbers. Hit 'Cancel' if you want an average of 3 numbers:")){
-	
-	var firstNum = userInput();
-	var secondNum = userInput();
-	
-	console.log ("The Sum of your two numbers is " + sum(firstNum, secondNum));
-	console.log ("The difference of your two numbers is " + subtract(firstNum, secondNum));
-	console.log (firstNum + " times " + secondNum + " is " + multiply(firstNum, secondNum));
-	console.log (firstNum + " divided by " + secondNum + " is " + divide(firstNum, secondNum));
-	console.log ("Your first number squared is " + square(firstNum));
-	console.log ("The sum of the square of your two numbers is " + sumOfTwoSquares(firstNum, secondNum));
+	function subtract(firstNum, secondNum) {
+			return firstNum - secondNum;
+	}
 
-} else {
-	var firstNum = userInput();
-	var secondNum = userInput();
-	var	thirdNumber = userInput();
-	
-	console.log ("The average of your 3 numbers is: " + averageOfThree(firstNum, secondNum, thirdNumber));
-}
+	function multiply(firstNum, secondNum) {
+			return firstNum * secondNum;
+	}
 
+	function divide(firstNum, secondNum) {
+			if (firstNum === 0 || secondNum === 0) {
+				console.log ("Dividing with Zero doesn't make sense!");
+			} else {
+				return firstNum / secondNum;
+			}
+	}
 
+	function square(number) {
+		return multiply(number, number);
+	}
 
+	function sumOfTwoSquares(firstNum, secondNum) {
+		return sum(square(firstNum), square(secondNum));
+	}
+
+	function isNumeric(firstNum) {
+		switch (isNaN(firstNum)){
+			case (true) :
+				alert("I can't do math without any numbers!");
+				return true;
+				break;
+			case (false) :
+				return false;
+				break;
+		}
+	}
+
+	function averageOfThree(firstNum, secondNum, thirdNumber) {
+		return (firstNum + secondNum + thirdNumber)/3;
+	}
+
+// Procedural Code---------------------------------------------------------->
+	do {
+		numberCheck = prompt('Type in the number of the math you would like to do: \n\t1. Addition \n\t2. Subtraction \n\t3. Multiplication \n\t4. Division \n\t5. Square \n\t6. Sum of two Squares \n\t7. Average of Three Numbers');
+		switch (numberCheck) {
+			case '1' :
+				firstNum = userInput();
+				secondNum = userInput();
+				alert("The Sum of " + firstNum + " + " + secondNum + " is " + sum(firstNum, secondNum));
+				numberCheck = 'ok';
+				break;
+			case '2' :
+				firstNum = userInput();
+				secondNum = userInput();
+				alert("The difference of " + firstNum + " - " + secondNum + " is " + subtract(firstNum, secondNum));
+				numberCheck = 'ok';
+				break;
+			case '3' :
+				firstNum = userInput();
+				secondNum = userInput();
+				alert(firstNum + " times " + secondNum + " is " + multiply(firstNum, secondNum));
+				numberCheck = 'ok';
+				break;
+			case '4' :
+				firstNum = userInput();
+				secondNum = userInput();
+				alert(firstNum + " divided by " + secondNum + " is " + divide(firstNum, secondNum));
+				numberCheck = 'ok';
+				break;
+			case '5' :
+				firstNum = userInput();
+				alert(firstNum + " squared is " + square(firstNum));
+				numberCheck = 'ok';
+				break;
+			case '6' :
+				firstNum = userInput();
+				secondNum = userInput();
+				alert("The sum of " + firstNum + " squared and " + secondNum + " squared is " + sumOfTwoSquares(firstNum, secondNum));
+				numberCheck = 'ok';
+				break;
+			case '7' :
+				firstNum = userInput();
+				secondNum = userInput();
+				thirdNumber = userInput();
+				alert("The average of " + firstNum + ", " + secondNum + ", and " + thirdNumber + " is: " + averageOfThree(firstNum, secondNum, thirdNumber));
+				numberCheck = 'ok';
+				break;
+			default :
+				alert("TYPE THE NUMBER!!!");
+				break;
+		}
+	}while (numberCheck !== 'ok');
+})();
 
 
 
