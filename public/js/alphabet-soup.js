@@ -3,6 +3,7 @@
 "use strict";
 
 (function(){
+
 	var result;
 	function userPrompt(){
 		var string = prompt("Enter a Sentence:");
@@ -29,4 +30,5 @@
 	result = alphabet_soup(userPrompt()).join(' ');
 	result = result.split(',').join('');
 	console.log(result);
+	
 })();
