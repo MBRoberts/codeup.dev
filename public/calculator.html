@@ -1,0 +1,102 @@
+<DOCTYPE html>
+
+<html lang='en'>
+	<head>
+		<meta charset = 'utf-8'>
+		<title>Calculator</title>
+		
+		<!-- Bootstrap core -->
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+
+		<!-- Custom CSS -->
+		<link rel="stylesheet" type="text/css" href="/css/calculator.css">
+
+	</head>
+	<body>
+		<div class="container size-container">
+			<div class="jumbotron">
+				<h1 id="answer">JavaScript Calculator</h1>
+			</div>
+
+			<div class="container input-display"> 
+				<div class="row">
+					<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+						<input type="text" value='' class="input-lg" id="leftOperand" readonly>
+					</div>
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+						<input type="text" class="input-lg" id="operator" readonly>
+					</div>
+					<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+						<input type="text" value='' class="input-lg" id="rightOperand" readonly>
+					</div>
+				</div><!--/.row-->
+			</div>
+
+			<div class="container keypad">
+				<div class="row">
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<button type="button" value="1" class="hvr-radial-out hvr-wobble-skew btn btn-secondary btn-lg numButtons" id="one"><h1>1</h1></button>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<button type="button" value="2" class="hvr-radial-out hvr-wobble-skew btn btn-secondary btn-lg numButtons" id="two"><h1>2</h1></button>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<button type="button" value="3" class="hvr-radial-out hvr-wobble-skew btn btn-secondary btn-lg numButtons" id="three"><h1>3</h1></button>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<button type="button" value="+" class="hvr-radial-out hvr-wobble-skew btn btn-secondary btn-lg numButtons" id="plus"><h1>+</h1></button>
+					</div>
+				</div><!--/.row-->
+
+				<div class="row">
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<button type="button" value="4" class="hvr-radial-out hvr-wobble-skew btn btn-secondary btn-lg numButtons" id="four"><h1>4</h1></button>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<button type="button" value="5" class="hvr-radial-out hvr-wobble-skew btn btn-secondary btn-lg numButtons" id="five"><h1>5</h1></button>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<button type="button" value="6" class="hvr-radial-out hvr-wobble-skew btn btn-secondary btn-lg numButtons" id="six"><h1>6</h1></button>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<button type="button" value="-" class="hvr-radial-out hvr-wobble-skew btn btn-secondary btn-lg numButtons" id="minus"><h1>-</h1></button>
+					</div>
+				</div><!--/.row-->
+
+				<div class="row">
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<button type="button" value="7" class="hvr-radial-out hvr-wobble-skew btn btn-secondary btn-lg numButtons" id="seven"><h1>7</h1></button>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<button type="button" value="8" class="hvr-radial-out hvr-wobble-skew btn btn-secondary btn-lg numButtons" id="eight"><h1>8</h1></button>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<button type="button" value="9" class="hvr-radial-out hvr-wobble-skew btn btn-secondary btn-lg numButtons" id="nine"><h1>9</h1></button>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<button type="button" value="*" class="hvr-radial-out hvr-wobble-skew btn btn-secondary btn-lg numButtons" id="times"><h1>*</h1></button>
+					</div>
+				</div><!--/.row-->
+
+				<div class="row">
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<button type="button" class="hvr-radial-out hvr-wobble-skew btn btn-secondary btn-lg numButtons" id="clear"><h1>CE</h1></button>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<button type="button" value="0" class="hvr-radial-out hvr-wobble-skew btn btn-secondary btn-lg numButtons" id="zero"><h1>0</h1></button>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<button type="button" value="=" class="hvr-radial-out hvr-wobble-skew btn btn-secondary btn-lg numButtons" id="equals"><h1>=</h1></button>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<button type="button" value="/" class="hvr-radial-out hvr-wobble-skew btn btn-secondary btn-lg numButtons" id="divide"><h1>/</h1></button>
+					</div>
+				</div><!--/.row-->
+			</div>
+		</div><!--/.container-->
+
+		<script src="/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/js/calculator.js"></script>
+	</body>
+</html>
