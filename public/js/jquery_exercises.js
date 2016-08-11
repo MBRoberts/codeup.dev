@@ -2,9 +2,21 @@
 
 $(document).ready(function() {
 	
-	$('li').css("font-size", '20px');
-	$('h1, p, li').css('background-color', 'yellow');
-	var contents = $('h1').html();
-	alert(contents)
+	$('h1').click(function() {
+			$(this).css('background-color', 'yellow');
+	});	
+
+	$('p').dblclick(function() {
+		$('p').css('font-size', '18px');
+	});
+	
+	$('li').hover(
+		function() {
+			$(this).css('color', 'red');
+		},
+		function() {
+			$(this).css('text-decoration', 'underline');
+		}
+	);
 });
 		
