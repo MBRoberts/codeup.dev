@@ -1,0 +1,44 @@
+<DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Codewars Challenge</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		function findOdd(A) {
+			var j = 0;
+			var check = [];
+			var saved;
+			for (i = A.length - 1 ; i >= 0 ; i--) {
+				A.forEach(function(element, index, array) {
+					if (element === A[i]) {
+						saved = A.splice(i, 1);
+						check[j] = saved;
+						j++
+					} 
+				});
+				if (check.length % 2 == 1) {
+					return check[0];
+				}
+			}
+		}
+
+
+		function doTest(a, n) {
+			console.log("A = ", a);
+			console.log("n = ", n);
+			console.log ("answer = " + findOdd(a));
+		}
+		
+			doTest([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5], 5);
+			doTest([1,1,2,-2,5,2,4,4,-1,-2,5], -1);
+			doTest([20,1,1,2,2,3,3,5,5,4,20,4,5], 5);
+			doTest([10], 10);
+			doTest([1,1,1,1,1,1,10,1,1,1,1], 10);
+			doTest([5,4,3,2,1,5,4,3,2,10,10], 1);
+		
+		</script>
+	</body>
+</html>
