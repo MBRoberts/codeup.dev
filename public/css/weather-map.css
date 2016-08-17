@@ -1,0 +1,58 @@
+.box {
+	margin: 10px auto;
+	width: 50%;
+	padding:15px;
+	border: 1px solid black;
+	background-color: #ddd;
+	text-align: right;
+	float: left;
+	box-shadow: 10px 10px 10px #555;
+}
+
+.temps {
+	text-align: right;
+	font-size: 2.5em;
+}
+
+.today-temps {
+	text-align: center;
+	font-size: 1.5em;
+	margin: 10px;
+}
+
+.jumbotron {
+	text-align: center;
+	box-shadow: 10px 10px 10px #555;
+
+}
+
+.icon {
+	float: left;
+}
+
+.today-icon {
+	margin-left: 35px; 
+}
+
+.today-date,
+.date {
+	text-align: left;
+	font-size: 1.5em;
+	float: left;
+}
+
+#map-canvas {
+	margin: auto;
+	margin-bottom: 40px;
+	width: 650px;
+	height: 481px;
+	border: 1px solid black;
+	box-shadow: 10px 10px 10px #555;
+
+}
+
+input,
+button {
+	box-shadow: 10px 10px 10px #555;
+
+}
