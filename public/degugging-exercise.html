@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Programming books books</title>
+</head>
+<body>
+    <h1>See your friend's books</h1>
+    <form>
+        <label for="friend">Choose</label>
+        <select id="friend" name="friend"></select>
+        <input type="button" id="search-button"value="Search">
+    </form>
+    <br>
+    <div id="books"></div>
+
+    <script type="text/javascript"src="/js/jquery.min.js"></script>
+    
+    <script>
+
+        var friends = [
+            {name: 'Oliver', books: ['Ansible for DevOps', 'Servers for hackers']},
+            {name: 'Barry', books: ['Working effectively with unit tests', '50 quick ideas for your tests']},
+            {name: 'Jessica', books: ['Understanding the 4 rules of simple design', 'Principles of package design']},
+            {name: 'Clark', books: ['Selling test driven projects']}
+        ];
+
+        var $friendSelect = $('#friend');
+        var options;
+        
+        friends.forEach(function (friend, i) {
+            options = '<option value="' + i + '">' + friend.name + '</option>';
+            $friendSelect.append(options);
+        });
+
+        $('#search-button').click(function(e) {
+            var friendVal = $("#friend").val();
+            var friendBooks = friends[friendVal].books.join("<br>");
+            $("#books").html(friendBooks);
+        })
+
+    </script>
+</body>
+</html>
