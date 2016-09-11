@@ -1,0 +1,42 @@
+.label-lg {
+	color: #286090;
+	text-shadow: 2px 2px 3px #104070;
+	font-size: 3em;
+}
+
+.label-md {
+	color: #286090;
+	text-shadow: 1px 1px 1px #104070;
+	font-size: 1.25em;
+}
+
+#login-form {
+	margin: 200px;
+	border: 1px solid white;
+	padding-top-bottom: 30px;
+	border-radius: 20px;
+	max-width: 350px;
+	min-width: 225px;
+	box-shadow: 0px 0px 100px #fdfdfd;
+	background-color: #fff;
+	float: right;
+}
+
+body {
+	background-image: url(/img/background.jpeg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.display {
+	color: white;
+	font-size: 2em;
+	border: 1px solid white;
+	float: left;
+	margin: 100px;
+	color: #286090;
+	border-radius: 20px;
+	box-shadow: 0px 0px 100px #fdfdfd;
+	margin-top: 200px;
+}
+

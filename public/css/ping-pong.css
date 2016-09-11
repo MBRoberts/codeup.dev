@@ -1,0 +1,39 @@
+body {
+	background-image: url(/img/puppets.gif);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: #000;
+}
+
+.jumbotron {
+	font-family: 'Press Start 2P';
+	color: white;
+	background-color: #000;
+	margin: auto;
+	width: 500px;
+
+}
+
+.box {
+	width:100px;
+	height: 100px;
+}
+
+#match-box {
+	width: 200px;
+	height: 200px;
+}
+
+#ping-score {
+	float: left;
+	color: white;
+	font-family: 'Press Start 2P';
+}
+
+#pong-score {
+	float: right;
+	color: white;
+	font-family: 'Press Start 2P';
+
+}
