@@ -2,14 +2,14 @@
 
 	session_start();
 
-	if (empty($_SESSION)) {
+	if ($_SESSION["is_logged_in"] != true) {
 
 		header("Location: /login.php");
 		die();
 
 	} else {
 
-		if ($_SESSION['logged_in_user'] === 'guest') {
+		if (isset($_SESSION['logged_in_user'])) {
 			$username = htmlspecialchars(strip_tags($_SESSION['logged_in_user']));
 		} else {
 			header("/login.php");

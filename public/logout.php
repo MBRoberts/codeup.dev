@@ -1,24 +1,25 @@
 <?php
-session_start();
 
-function clearSession()
-{
-    // clear $_SESSION array
-    session_unset();
+	session_start();
 
-    // delete session data on the server
-    session_destroy();
+	function clearSession()
+	{
+		// clear $_SESSION array
+		session_unset();
 
-    // ensure client is sent a new session cookie
-    session_regenerate_id();
+		// delete session data on the server
+		session_destroy();
 
-    // start a new session - session_destroy() ended our previous session so
-    // if we want to store any new data in $_SESSION we must start a new one
-    session_start();
+		// ensure client is sent a new session cookie
+		session_regenerate_id();
 
-};
+		// start a new session - session_destroy() ended our previous session so
+		// if we want to store any new data in $_SESSION we must start a new one
+		session_start();
 
-clearSession();
+	};
 
-header("Location: http://codeup.dev/login.php");
-die();
+	clearSession();
+
+	header("Location: http://codeup.dev/login.php");
+	die();
