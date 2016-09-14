@@ -2,6 +2,8 @@
 
 	session_start();
 
+	require_once 'functions.php';
+
 	function sessionCheck()
 	{
 		if (!empty($_SESSION)) {
@@ -20,8 +22,8 @@
 
 		if(!empty($_POST) || !empty($_GET)) {
 
-			$username = htmlspecialchars(strip_tags($_POST['username']));
-			$password = htmlspecialchars(strip_tags($_POST['password']));
+			$username = escape(inputGet('username'));
+			$password = escape(inputGet('password'));
 
 			if($username === "guest" && $password === "password") {
 

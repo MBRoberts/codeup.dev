@@ -1,5 +1,7 @@
 <?php 
 
+require_once 'input.php';
+
 function randomDiv()
 {
 	$divArray = [
@@ -43,13 +45,13 @@ function pageController()
 	{
 		$counter = [];
 
-		if (isset($_GET['q'])) { 
+		if (Input::has('q')) { 
 			if ($_GET['q'] == 'hit') {
-				$counter['pongValue'] = $_GET['pongValue'] + 1;
-				$counter['pingValue'] = $_GET['pingValue'];
+				$counter['pongValue'] = Input::get('pongValue') + 1;
+				$counter['pingValue'] = Input::get('pingValue');
 			} else {
 				$counter['pongValue'] = 0;
-				$counter['pingValue'] = $_GET['pingValue'];
+				$counter['pingValue'] = Input::get('pingValue');
 			};
 		} else {
 			$counter['pingValue'] = 0;
