@@ -2,51 +2,33 @@
 
 	session_start();
 
-	require_once 'functions.php';
-
-	function sessionCheck()
-	{
-		if (!empty($_SESSION)) {
-
-			if ($_SESSION['logged_in_user'] === 'guest') {
-				header("Location: http://codeup.dev/authorized.php");
-				die();
-			}
-		}
-	}
+	require_once '../Input.php';
+	require_once '../Auth.php';
 
 
 	function pageController()
 	{
 		$message = 'Login: ';
 
-		if(!empty($_POST) || !empty($_GET)) {
+		if(!empty($_POST)) {
 
-			$username = escape(inputGet('username'));
-			$password = escape(inputGet('password'));
+			$username = Input::escape(Input::get('username'));
+			$password = Input::escape(Input::get('password'));
 
-			if($username === "guest" && $password === "password") {
-
-				$_SESSION['logged_in_user'] = $username;
-				$_SESSION['is_logged_in'] = true;
-				
-				header("Location: http://codeup.dev/authorized.php");
-				die();
-
-			} else {
-				$message = "Error: Wrong Username or Password";
-			};
+			$message = Auth::attempt($username, $password);
 
 		};
 
-		return [
-			'message' => $message
-		];
+		if (Auth::check()) {
+			Auth::redirect("/authorized.php");
+		}
 
+		return $message;
+		
 	}
 
-	sessionCheck();
-	extract(pageController());
+
+	$message = pageController();
 ?>
 
 
@@ -81,7 +63,7 @@
 
 				<div class="form-group checkbox row">
 					<label class="blue label-md">
-	  					<input type="checkbox" class="active">
+	  					<input name="session" type="checkbox" class="active" checked>
 	 					Remember Me
 					</label>
 				</div>

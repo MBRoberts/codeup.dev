@@ -1,6 +1,6 @@
 <?php 
 
-require_once 'input.php';
+require_once '../input.php';
 
 function randomDiv()
 {
@@ -91,7 +91,7 @@ function pageController()
 			<div><img id="match-box" src="<?=$images[0]?>"></div>
 			
 			<?php foreach ($divs as $div) { ?>
-				<a href="pong.php?q=<?=$div['url']?>&pingValue=<?=$pingValue?>&pongValue=<?=$pongValue?>">
+				<a href="pong.php?q= <?=$div['url']?>&pingValue=<?=$pingValue?>&pongValue=<?=$pongValue?>">
 					<img class="box" src="<?=$images[$div['imgNum']]?>">
 				</a>
 			<?php }?>

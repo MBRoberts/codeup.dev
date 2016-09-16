@@ -2,20 +2,32 @@
 
 	session_start();
 
-	if ($_SESSION["is_logged_in"] != true) {
+	require_once '../Input.php';
+	require_once '../Auth.php';
 
-		header("Location: /login.php");
-		die();
+	function pageController() 
+	{
 
-	} else {
+		if (Auth::check()) {
 
-		if (isset($_SESSION['logged_in_user'])) {
-			$username = htmlspecialchars(strip_tags($_SESSION['logged_in_user']));
+			if (isset($_SESSION['logged_in_user'])) {
+				$username = Input::escape(Auth::user());
+				
+				if ($_SESSION['stay_logged_in'] == false) {
+					Auth::logout();
+				}
+				return $username;
+
+			} else {
+				Auth::redirect("/login.php");
+			};
+
 		} else {
-			header("/login.php");
-			die();
+			Auth::redirect("/login.php");
 		};
-	};
+	}
+	
+	$username = pageController();	
 ?>
 
 
@@ -29,7 +41,7 @@
 		<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 		<style type="text/css">
 			body {
-				background-image: url(/img/mountains.jpeg);
+				background-image: url(/img/fish.jpeg);
 				background-size: cover;
 				background-repeat: no-repeat;
 			}
@@ -37,9 +49,10 @@
 	</head>
 	<body>
 		<main class="container text-center">
-			<h1 class="jumbotron">WELCOME, <?= $username ?>!!</h1>
+			<h1 class="jumbotron" style="background-color: rgba(59,97,125,.5); color: white;">WELCOME, <?= $username ?>...<br>To a pointless website!!<br><br>
+			<a href="/logout.php"><div class="btn btn-primary">Now Leave !!</div></a></h1>
 			
-				<a href="/logout.php"><div class="btn btn-primary">Now Leave !!</div></a>
+				
 			
 		</main>
 	</body>
