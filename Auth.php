@@ -2,16 +2,17 @@
 
 require_once "Log.php";
 
-/**********************************************************
- *  Authorizes, checks login status, logs out of session  *
- *  @param string $username user inputted username		  *
- *  @param string $password user inputted password		  *
- **********************************************************/
 
 class Auth
 {
 	public static $hash;
 
+/**********************************************************
+ *  Authorizes log in 									  *
+ *  @param string $username user inputted username		  *
+ *  @param string $password user inputted password		  *
+ *  @return string $message "login" or "login fail" 	  *
+ **********************************************************/
 	public static function attempt($username, $password)
 	{
 		$message = "Login";
@@ -38,7 +39,11 @@ class Auth
 		return $message;
 		
 	}
-
+	
+/**********************************************************
+ *  Checks if user is logged in							  *
+ *  @return bool 									 	  *
+ **********************************************************/
 	public static function check()
 	{
 		if (isset($_SESSION['is_logged_in'])) {
@@ -49,6 +54,10 @@ class Auth
 		}
 	}
 
+/**********************************************************
+ *  Pulls username from session storage					  *
+ *  @return string logged in username				 	  *
+ **********************************************************/
 	public static function user()
 	{
 		if (!empty($_SESSION)) {
@@ -56,12 +65,19 @@ class Auth
 		}
 	}
 
+/**********************************************************
+ *  Redirects to passed in url						  	  *
+ *  @param string $url path to be redirected to 		  *
+ **********************************************************/
 	public static function redirect($url)
 	{
 		header("Location: $url");
 		die();
 	}
 
+/**********************************************************
+ *  Clears all session data 							  *
+ **********************************************************/
 	public static function logout()
 	{
 		// clear $_SESSION array

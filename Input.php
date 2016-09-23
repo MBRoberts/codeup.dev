@@ -14,8 +14,6 @@ class Input
 		return array_key_exists($key, $_REQUEST);
 	}
 
-
-
 	/********************************************************************
 	 *  Get a requested value from either $_POST or $_GET  				*
 	 *																	*

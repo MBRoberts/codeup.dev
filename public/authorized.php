@@ -11,12 +11,12 @@
 		if (Auth::check()) {
 
 			if (isset($_SESSION['logged_in_user'])) {
-				$username = Input::escape(Auth::user());
 				
 				if ($_SESSION['stay_logged_in'] == false) {
 					Auth::logout();
 				}
-				return $username;
+
+				return ['username' => Input::escape(Auth::user())];
 
 			} else {
 				Auth::redirect("/login.php");
@@ -27,7 +27,7 @@
 		};
 	}
 	
-	$username = pageController();	
+	extract(pageController());	
 ?>
 
 
