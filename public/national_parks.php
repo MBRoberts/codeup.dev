@@ -1,33 +1,29 @@
-<?php 
-define("DB_HOST", "127.0.0.1");
-define("DB_NAME", "parks_db");
-define("DB_USER", 'parks_user');
-define("DB_PASS", 'password123');
+<?php
 
-require '../db_connect.php';
+	define("DB_HOST", "127.0.0.1");
+	define("DB_NAME", "parks_db");
+	define("DB_USER", 'parks_user');
+	define("DB_PASS", 'password123');
 
-function pageController($dbc)
-{
+	require '../db_connect.php';
 
-	$offset = (!empty($_GET)) ? $_GET['offset'] : 0 ;
+	function pageController($dbc)
+	{
+		$limit = 4 ;
+		$offset = (!empty($_GET)) ? (($_GET['page'] - 1	) * $limit) : 0 ;
+		$stmt = $dbc->query('SELECT * FROM national_parks');
 
+		return [
+			'parks' => $dbc->query('SELECT * FROM national_parks LIMIT ' . $limit . ' OFFSET ' . $offset)->fetchAll(PDO::FETCH_ASSOC),
+			'parkCount' => $stmt->rowCount(),
+			'limit' => $limit
+		];
 
-	$stmt = $dbc->query('SELECT * FROM national_parks');
+	};
 
-	return [
-		'parks' => $dbc->query('SELECT * FROM national_parks LIMIT 4 OFFSET ' . $offset)->fetchAll(PDO::FETCH_ASSOC),
-		'parkCount' => $stmt->rowCount()
-	];
-
-
-};
-
-extract(pageController($dbc));
-
-
+	extract(pageController($dbc));
 
 ?>
-
 
 <!DOCTYPE html>
 
@@ -43,20 +39,40 @@ extract(pageController($dbc));
 		<!-- Bootstrap Core CSS CDN-->
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+		<style type="text/css">
+			.container {
+				background-color: rgba(0, 0, 0, .5);
+				padding: 50px;
+				margin-top: 50px;
+				border-radius: 20px;
+				box-shadow: 0px 0px 75px #000;
+			}
+			table,
+			.jumbotron {
+				background-color: white;
+				box-shadow: 0px 0px 75px #fff;
+			}
+			.btn {
+				box-shadow: 0px 0px 75px #fff;
+			}
+
+		</style>
+
 	</head>
-	<body>
+	<body style="background-image:url(img/ocean.jpg); background-size: cover; background-repeat: no-repeat;">
+
 		<div class="container text-center">
 
-			<h1 class="jumbotron text-center" style="margin-top:100px;">National Parks</h1>
+			<h1 class="jumbotron text-center">National Parks</h1>
 
-			<table class="table table-striped table-bordered" style="margin-top: 100px;">
+			<table class="table table-striped table-bordered table-hover table-responsive">
 				<th><h4 class="text-center">Row</h4></th>
 				<th><h4 class="text-center">Name</h4></th>
 				<th><h4 class="text-center">Location</h4></th>
 				<th><h4 class="text-center">Date Established</h4></th>
 				<th><h4 class="text-center">Area In Acres</h4></th>
 
-				<?php foreach ($parks as $index => $park) { ?>
+				<?php foreach ($parks as $park) { ?>
 					<tr>
 						<td> <?= $park['id'] ?> </td>
 						<td> <?= $park['name'] ?> </td>
@@ -69,9 +85,35 @@ extract(pageController($dbc));
 			</table>
 			<br>
 
-			<?php for($i = 0; $i <= $parkCount; $i+=4) { ?>
-				<a href="national_parks.php?offset=<?=$i?>"><div class="btn btn-primary"><?=($i+1)?> - <?=($i+4)?></div></a>
+			<?php if (!empty($_GET)){ 
+				if ($_GET['page'] != 1){ ?>
+					<a href="national_parks.php?page=<?=($_GET['page']-1)?>">
+						<div style="margin-right:10px;" class="btn btn-lg btn-primary"><</div>
+					</a>
+				<?php }
+			} ?>
+				
+			<?php $page = 1;
+				for ($i = 0; $i <= $parkCount; $i+=$limit) { ?>
+					<a href="national_parks.php?page=<?=$page?>"> 
+						<div class="btn btn-primary">
+							<?=$page++?>	
+						</div>
+					</a>
+			<?php } 
+
+			if (!empty($_GET)){ 
+				if (($_GET['page']+1) < $page) { ?>
+					<a href="national_parks.php?page=<?=($_GET['page']+1)?>">
+						<div style="margin-left:10px;" class="btn btn-lg btn-primary">></div>
+					</a>
+				<?php }
+			} else {?>
+				<a href="national_parks.php?page=2">
+						<div style="margin-left:10px;" class="btn btn-lg btn-primary">></div>
+					</a>
 			<?php } ?>
+
 		</div><!--/.container text-center -->
 
 		<!-- Jquery.js CDN -->

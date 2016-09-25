@@ -77,4 +77,4 @@ foreach ($parks as $park) {
     $dbc->exec($query);
 
     echo "Inserted ID: " . $dbc->lastInsertId() . PHP_EOL;
-}
+};
