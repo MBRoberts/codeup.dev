@@ -1,18 +1,24 @@
 <?php
 
-	define("DB_HOST", "127.0.0.1");
-	define("DB_NAME", "parks_db");
-	define("DB_USER", 'parks_user');
-	define("DB_PASS", 'password123');
+	// Database connection configuration
+	require '../national_parks_config.php';
 
+	// Database connection
 	require '../db_connect.php';
 
+	// $dbc parameter is being pulled from db_connect.php file
 	function pageController($dbc)
 	{
-		$limit = 4 ;
-		$offset = (!empty($_GET)) ? (($_GET['page'] - 1	) * $limit) : 0 ;
-		$stmt = $dbc->query('SELECT * FROM national_parks');
+		//  Determines how many results/page
+		$limit = 4;
 
+		// offset determines which result to start on in the query. One is subtracted to counteract the 'off-by-one error' then is multiplied by the limit. If there is no page # in the GET Request, it defaults to 0
+		$offset = (!empty($_GET)) ? (($_GET['page'] - 1	) * $limit) : 0;  
+		
+		// $dbc is an instance, query() is a function call that uses SQL to gather everything from the database
+		$stmt = $dbc->query('SELECT * FROM national_parks');  
+
+		// returns the parks rquested, a total count of the parks, and the pagination amount to be used in the html
 		return [
 			'parks' => $dbc->query('SELECT * FROM national_parks LIMIT ' . $limit . ' OFFSET ' . $offset)->fetchAll(PDO::FETCH_ASSOC),
 			'parkCount' => $stmt->rowCount(),
@@ -31,7 +37,7 @@
 	<head>
 
 		<meta charset="utf-8">
-		<meta name="description" content="">
+		<meta name="description" content="PHP Exercises">
 		<meta name="author" content="Ben Roberts">
 
 		<title>National Parks</title>
@@ -39,6 +45,7 @@
 		<!-- Bootstrap Core CSS CDN-->
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+		<!-- Custom CSS -->
 		<style type="text/css">
 			.container {
 				background-color: rgba(0, 0, 0, .5);
@@ -55,7 +62,6 @@
 			.btn {
 				box-shadow: 0px 0px 75px #fff;
 			}
-
 		</style>
 
 	</head>
@@ -65,6 +71,7 @@
 
 			<h1 class="jumbotron text-center">National Parks</h1>
 
+			<!-- creating the table and adding in the table heads -->
 			<table class="table table-striped table-bordered table-hover table-responsive">
 				<th><h4 class="text-center">Row</h4></th>
 				<th><h4 class="text-center">Name</h4></th>
@@ -72,6 +79,7 @@
 				<th><h4 class="text-center">Date Established</h4></th>
 				<th><h4 class="text-center">Area In Acres</h4></th>
 
+				<!-- foreach will iterate through all of the data using the key => value pairs -->
 				<?php foreach ($parks as $park) { ?>
 					<tr>
 						<td> <?= $park['id'] ?> </td>
@@ -85,6 +93,7 @@
 			</table>
 			<br>
 
+			<!-- Checks to see if there is a GET request then displays a previous button if the current page is not the first page -->
 			<?php if (!empty($_GET)){ 
 				if ($_GET['page'] != 1){ ?>
 					<a href="national_parks.php?page=<?=($_GET['page']-1)?>">
@@ -93,15 +102,17 @@
 				<?php }
 			} ?>
 				
+			<!-- for loop starts count at 0, then adds the limit each time, passes to the href for page number. -->
 			<?php $page = 1;
-				for ($i = 0; $i <= $parkCount; $i+=$limit) { ?>
-					<a href="national_parks.php?page=<?=$page?>"> 
-						<div class="btn btn-primary">
-							<?=$page++?>	
-						</div>
-					</a>
-			<?php } 
+			for ($i = 0; $i <= $parkCount; $i+=$limit) { ?>
+				<a href="national_parks.php?page=<?=$page?>"> 
+					<div class="btn btn-primary">
+						<?=$page++?>	
+					</div>
+				</a>
+			<?php }
 
+			// Checks to see if there is a GET request then displays a next button if the current page is not the last page
 			if (!empty($_GET)){ 
 				if (($_GET['page']+1) < $page) { ?>
 					<a href="national_parks.php?page=<?=($_GET['page']+1)?>">
