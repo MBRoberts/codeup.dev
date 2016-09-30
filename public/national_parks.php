@@ -6,18 +6,24 @@
 	// Database connection
 	require_once '../db_connect.php';
 
+	// Input Class
+	require_once '../Input.php';
+
 	// Table Class
 	require_once '../Table.php';
 
 	// $dbc parameter is being pulled from db_connect.php file
 	function pageController($dbc)
 	{
-		if(isset($_GET['name'], $_GET['location'], $_GET['date_established'], $_GET['area_in_acres'], $_GET['description'])) {
+		
+		if(Input::has('name') && Input::has('location') && Input::has('date_established') && Input::has('area_in_acres') && Input::has('description')) {
 			Table::insertPark($dbc);
+			
 		}
 
 		// returns the parks rquested, a total count of the parks, and the pagination amount to be used in the html
 		return Table::getTable($dbc);
+		
 	};
 
 	extract(pageController($dbc));
@@ -31,12 +37,12 @@
 
 		<meta charset="utf-8">
 		<meta name="description" content="PHP Exercises">
-		<meta name="keywords" content="">
+		<meta name="keywords" content="National Parks">
 		<meta name="author" content="Ben Roberts">
 
 		<title>National Parks 
-			<?php if (isset($_GET['page'])) {
-				echo " Page: {$_GET['page']}";
+			<?php if (Input::has('page')) {
+				echo " Page: " . Input::getString('page');
 			 }?>
 		</title>
 
@@ -60,7 +66,6 @@
 
 	</head>
 	<body>
-
 		<div class="container text-center">
 
 			<h1 class="jumbotron text-center">National Parks</h1>
@@ -95,6 +100,11 @@
 		<br>
 		<br>
 		<div class="container">
+
+			<?php foreach (Input::$errors as $error) { ?>
+				<h2 style="color: red;"><?= $error ?></h2>
+			<?php }?>
+
 			<form>
 				<div class="form-group row">
 					<label for="name" class="col-xs-2 col-form-label ">Park Name</label>

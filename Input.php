@@ -2,6 +2,8 @@
 
 class Input
 {
+	public static $errors = [];
+
 	/*************************************************************
 	 *  Check if a given value was passed in the request         *
 	 *             											 	 *
@@ -24,11 +26,13 @@ class Input
 
 	public static function get($key, $default = null)
 	{
+	
 		if (self::has($key)) {
 			return $_REQUEST[$key];
 		} else {
-			return $default;
+			throw new Exception('Key not available!');
 		}
+		
 	}
 
 	public static function escape($input) 
@@ -44,4 +48,40 @@ class Input
 	///////////////////////////////////////////////////////////////////////////
 
 	private function __construct() {}
+
+	public static function getString($key)
+	{
+		
+		if(!self::has($key)) {
+			throw new Exception("Request does not contain key: '{$key}'");
+		}
+	
+
+		$value = self::get($key);
+
+		
+		if (gettype($value) != 'string') {
+			throw new Exception("Value at index '{$key}' does not exist");
+		}
+		
+		return $value;
+	}
+
+	public static function getNumber($key)
+	{
+		
+		if (!self::has($key)) {
+			throw new Exception("Request does not contain key: '{$key}'");
+		}
+
+		$value = self::get($key);
+		
+		if (!is_numeric($value)){
+			throw new Exception("Value '{$value}' is not a number!");
+		}
+		
+	
+		return (int)$value;
+
+	}
 }

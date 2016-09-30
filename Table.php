@@ -2,7 +2,7 @@
 
 class Table
 {
-	private static $limit = 2;
+	private static $limit = 4;
 	private static $offset;
 	private static $query;
 	private static $stmt;
@@ -10,15 +10,51 @@ class Table
 	private static $btnRow;
 	private static $page;
 	private static $table;
+	private static $insertQuery;
+	private static $insertStmt;
 
 	public static function insertPark($dbc) 
 	{
 
-		self::$insertQuery = 'INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (?, ?, ?, ?, ?)';
+		self::$insertQuery = 'INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (:name, :location, :date_established, :area_in_acres, :description)';
 
 		self::$insertStmt = $dbc->prepare(self::$insertQuery);
 
-		self::$insertStmt->execute(array($_GET['name'], $_GET['location'], $_GET['date_established'], $_GET['area_in_acres'], $_GET['description']));
+
+		try {
+			$name = Input::getString('name');
+		} catch (Exception $e) {
+			Input::$errors[] = $e->getMessage();
+		}
+
+		try {
+			$location = Input::getString('location');
+		} catch (Exception $e) {
+			Input::$errors[] = $e->getMessage();
+		}
+
+    	try {
+    		$date_established = Input::getString('date_established');
+    	} catch (Exception $e) {
+    		Input::$errors[] = $e->getMessage();
+    	}
+
+   		try {
+   			$area_in_acres = Input::getNumber('area_in_acres');
+   		} catch (Exception $e) {
+   			Input::$errors[] = $e->getMessage();
+   		}
+
+   		try {
+   			$description = Input::getString('description');
+   		} catch (Exception $e) {
+   			Input::$errors[] = $e->getMessage();
+   		}
+			self::$insertStmt->bindValue(':name', $name , PDO::PARAM_STR);
+	    	self::$insertStmt->bindValue(':location', $location, PDO::PARAM_STR);
+	   		self::$insertStmt->bindValue(':date_established', $date_established, PDO::PARAM_STR);
+	   		self::$insertStmt->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_INT);
+	    	self::$insertStmt->bindValue(':description', $description, PDO::PARAM_STR);
 
 	}
 
@@ -41,9 +77,9 @@ class Table
 		self::$btnRow = '';
 
 		// Checks to see if there is a GET request then displays a previous button if the current page is not the first page
-		if (isset($_GET['page'])) { 
-			if ($_GET['page'] != 1) { 
-				self::$btnRow .= "<a href='national_parks.php?page=" . htmlspecialchars(strip_tags(($_GET['page']-1))) . "'><div class='btn btn-lg btn-primary'> < </div></a>";
+		if (Input::has('page')){
+			if (Input::getNumber('page') != 1) { 
+				self::$btnRow .= "<a href='national_parks.php?page=" . htmlspecialchars(strip_tags(Input::getNumber('page')-1)) . "'><div class='btn btn-lg btn-primary'> < </div></a>";
 			}
 		}
 			
@@ -55,9 +91,9 @@ class Table
 		}
 
 		// Checks to see if there is a GET request then displays a next button if the current page is not the last page
-		if (isset($_GET['page'])){ 
-			if (($_GET['page']+1) < self::$page) {
-				self::$btnRow .= "<a href='national_parks.php?page=" . htmlspecialchars(strip_tags(($_GET['page']+1))) . "&limit=" . self::$limit . "'><div class='btn btn-lg btn-primary'>></div></a>";
+		if (Input::has('page')){ 
+			if ((Input::getNumber('page')+1) < self::$page) {
+				self::$btnRow .= "<a href='national_parks.php?page=" . htmlspecialchars(strip_tags(Input::getNumber('page')+1)) . "&limit=" . self::$limit . "'><div class='btn btn-lg btn-primary'>></div></a>";
 			}
 		} else {
 			self::$btnRow .= "<a href='national_parks.php?page=2'><div style='margin-left:10px;' class='btn btn-lg btn-primary'>></div></a>";
@@ -68,11 +104,11 @@ class Table
 	public static function getTable($dbc)
 	{
 		//  Determines how many results/page
-		self::$limit = (isset($_GET['limit'])) ? (int)htmlspecialchars(strip_tags($_GET['limit'])) : 2;
+		self::$limit = (Input::has('limit')) ? Input::getNumber('limit') : 4;
 		self::$stmt = $dbc->query('SELECT * FROM national_parks');
 
 		// offset determines which result to start on in the query. One is subtracted to counteract the 'off-by-one error' then is multiplied by the limit. If there is no page # in the GET Request, it defaults to 0
-		self::$offset = (isset($_GET['page'])) ? (int)(htmlspecialchars(strip_tags($_GET['page']) - 1	) * self::$limit) : 0;
+		self::$offset = (Input::has('page')) ? ((Input::getNumber('page') - 1) * self::$limit) : 0;
 		self::$query = 'SELECT * FROM national_parks LIMIT :limit OFFSET :offset';
 		self::$stm = $dbc->prepare(self::$query);
 
