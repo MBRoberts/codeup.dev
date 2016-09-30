@@ -22,39 +22,44 @@ class Table
 
 
 		try {
-			$name = Input::getString('name');
+			$name = Input::getString('name', 2, 50);
 		} catch (Exception $e) {
 			Input::$errors[] = $e->getMessage();
 		}
 
 		try {
-			$location = Input::getString('location');
+			$location = Input::getString('location', 2, 50);
 		} catch (Exception $e) {
 			Input::$errors[] = $e->getMessage();
 		}
 
-    	try {
-    		$date_established = Input::getString('date_established');
-    	} catch (Exception $e) {
-    		Input::$errors[] = $e->getMessage();
-    	}
+		try {
+			$date_established = Input::getString('date_established', 10, 10);
+		} catch (Exception $e) {
+			Input::$errors[] = $e->getMessage();
+		}
 
-   		try {
-   			$area_in_acres = Input::getNumber('area_in_acres');
-   		} catch (Exception $e) {
-   			Input::$errors[] = $e->getMessage();
-   		}
+		try {
+			$area_in_acres = Input::getNumber('area_in_acres', 10, PHP_INT_MAX);
+		} catch (Exception $e) {
+			Input::$errors[] = $e->getMessage();
+		}
 
-   		try {
-   			$description = Input::getString('description');
-   		} catch (Exception $e) {
-   			Input::$errors[] = $e->getMessage();
-   		}
+		try {
+			$description = Input::getString('description', 1 ,(255 * 1024));
+		} catch (Exception $e) {
+			Input::$errors[] = $e->getMessage();
+		}
+
+		if (count(Input::$errors) == 0) {
 			self::$insertStmt->bindValue(':name', $name , PDO::PARAM_STR);
-	    	self::$insertStmt->bindValue(':location', $location, PDO::PARAM_STR);
-	   		self::$insertStmt->bindValue(':date_established', $date_established, PDO::PARAM_STR);
-	   		self::$insertStmt->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_INT);
-	    	self::$insertStmt->bindValue(':description', $description, PDO::PARAM_STR);
+			self::$insertStmt->bindValue(':location', $location, PDO::PARAM_STR);
+			self::$insertStmt->bindValue(':date_established', $date_established, PDO::PARAM_STR);
+			self::$insertStmt->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_INT);
+			self::$insertStmt->bindValue(':description', $description, PDO::PARAM_STR);
+
+			self::$insertStmt->execute();
+		}
 
 	}
 

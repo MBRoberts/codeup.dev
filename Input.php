@@ -49,35 +49,45 @@ class Input
 
 	private function __construct() {}
 
-	public static function getString($key)
+	public static function getString($key, $min = 0, $max = 100000)
 	{
 		
 		if(!self::has($key)) {
-			throw new Exception("Request does not contain key: '{$key}'");
+			throw new OutOfRangeException("Request does not contain key: '{$key}'");
 		}
 	
 
 		$value = self::get($key);
 
-		
 		if (gettype($value) != 'string') {
-			throw new Exception("Value at index '{$key}' does not exist");
+			throw new DomainException("Value {$value} is not a string");
+		}
+		if (strlen($value) < $min || strlen($value) > $max) {
+			throw new LengthException("Length must be between {$min} and {$max}");
+		}
+		
+		if (!is_int($min) && !is_int($max)) {
+			throw new InvalidArgumentException("Value at index '{$key}' is the wrong type");
 		}
 		
 		return $value;
 	}
 
-	public static function getNumber($key)
+	public static function getNumber($key, $min = 0, $max = 10000)
 	{
 		
 		if (!self::has($key)) {
-			throw new Exception("Request does not contain key: '{$key}'");
+			throw new OutOfRangeException("Request does not contain key: '{$key}'");
 		}
 
 		$value = self::get($key);
+
+		if ($value < $min || $value > $max) {
+			throw new RangeException("Number must be between {$min} and {$max}");
+		}
 		
-		if (!is_numeric($value)){
-			throw new Exception("Value '{$value}' is not a number!");
+		if (!is_int($value) && !is_int($min) && !is_int($max)){
+			throw new InvalidArgumentException("Value '{$value}' is not a number!");
 		}
 		
 	
