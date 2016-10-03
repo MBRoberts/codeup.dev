@@ -6,17 +6,16 @@ require_once __DIR__ . '/Model.php';
 
 class User extends Model
 {
-
 	/** Insert a new entry into the database */
 	protected function insert()
 	{
 		self::dbConnect();
-		
+
 		// @TODO: Use prepared statements to ensure data security
 		$query = self::$dbc->prepare('INSERT INTO ' . self::$table . '(name, email, password) VALUES(:name, :email, :password)');
 
 		// @TODO: You will need to iterate through all the attributes to build the prepared query
-		foreach ($attributes as $key => $attribute) {
+		foreach ($this->attributes as $key => $attribute) {
 			$query->bindValue(":{$key}", $this->attributes["{$key}"], PDO::PARAM_STR);
 	    }
 
@@ -26,7 +25,7 @@ class User extends Model
 		//        so the object properly represents a DB record
 		$id = self::$dbc->lastInsertId();
 		$this->attributes['id'] = $id;
-	}
+	
 	}
 
 	/** Update existing entry in the database */
@@ -35,13 +34,10 @@ class User extends Model
 		self::dbConnect();
 
 		// @TODO: Use prepared statements to ensure data security
-		$query = self::$dbc->prepare('UPDATE ' . self::$table . ' (name, email, password) VALUES(:name, :email, :password) WHERE id = :id');
-		foreach ($attributes as $key => $attribute) {
-			if (gettype($attribute) == 'string') {
+		$query = self::$dbc->prepare('UPDATE ' . self::$table . ' SET name = :name, email = :email, password = :password WHERE id = :id');
+		foreach ($this->attributes as $key => $attribute) {
 				$query->bindValue(":{$key}", $this->attributes["{$key}"], PDO::PARAM_STR);
-			} else if (gettype($attribute) == 'int') {
-				$query->bindValue(":{$key}", $this->attributes["{$key}"], PDO::PARAM_INT);
-			}
+			
 	    }
 
 		$query->execute();
@@ -60,11 +56,12 @@ class User extends Model
 		self::dbConnect();
 
 		// @TODO: Create select statement using prepared statements
-		$findSelect = self::$dbc->prepare('SELECT * FROM ' . self::$table ' WHERE id = :id');
-
+		$query = self::$dbc->prepare('SELECT * FROM ' . self::$table . ' WHERE id = :id');
+		$query->bindValue(':id', $id, PDO::PARAM_INT);
 		// @TODO: Store the result in a variable named $result
-		$findSelect->execute();
-		$result = $findSelect->fetch(PDO::FETCH_ASSOC);
+		$query->execute();
+		$result = $query->fetch(PDO::FETCH_ASSOC);
+		
 		// The following code will set the attributes on the calling object based on the result variable's contents
 		$instance = null;
 		if ($result) {
@@ -83,9 +80,9 @@ class User extends Model
 		self::dbConnect();
 
 		// @TODO: Learning from the find method, return all the matching records
-		$allUsers = self::$dbc->prepare('SELECT * FROM ' . self::$table);
-		$allUsers->execute();
-		$result = $allUsers->fetchAll(PDO::FETCH_ASSOC);
+		$query = self::$dbc->prepare('SELECT * FROM ' . self::$table);
+		$query->execute();
+		$result = $query->fetchAll(PDO::FETCH_ASSOC);
 
 		$instance = null;
 
@@ -96,12 +93,21 @@ class User extends Model
 
 	}
 
-	public static function delete()
+	public static function delete($id)
 	{
 		self::dbConnect();
 
-		$deleteUsers = self::$dbc->prepare('DELETE * FROM ' . self::$table . ' WHERE id = :id');
-		$deleteUsers->bindValue(':id', $this->attributes['id'], PDO::PARAM_INT);
-		$deleteUsers->execute();
+		$query = self::$dbc->prepare('DELETE FROM ' . self::$table . ' WHERE id = :id');
+		$query->bindValue(':id', $id, PDO::PARAM_INT);
+		$query->execute();
 	}
 }
+
+
+User::delete(1);
+
+
+
+
+
+

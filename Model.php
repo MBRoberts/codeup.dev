@@ -1,4 +1,8 @@
 <?php
+define("DB_HOST", "127.0.0.1");
+define("DB_NAME", "join_test_db");
+define("DB_USER", 'codeup');
+define("DB_PASS", 'password123');
 
 abstract class Model
 {
@@ -52,7 +56,10 @@ abstract class Model
 	public function __get($name)
 	{
 		// @TODO: Return the value from attributes for $name if it exists, else return null
-		return $this->attributes[$name];
+		if (isset($this->attributes[$name])) {
+			return $this->attributes[$name];
+		}
+		return null;
 	}
 
 	/**
