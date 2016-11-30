@@ -2,6 +2,7 @@
 
 function twentyFourToTwelve (time) {
 	var hours = Number(time.substring(0 , time.indexOf(":")));
+	console.log(hours);
 	var mins = Number(time.substring((time.indexOf(":") + 1), 5));
 	var amOrPm = amPm(hours);
 	hours = twelveHour(hours);

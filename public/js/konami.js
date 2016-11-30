@@ -1,11 +1,10 @@
-'use strict';
-
 (function() {
+	'use strict';
 
 	var  keyArray = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
 
 	$(document).keyup(function(e) {
-		
+
 		if (e.keyCode == keyArray[0]) {
 
 			keyArray.shift();

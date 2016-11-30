@@ -3,7 +3,7 @@
 	height: 481px;
 	border: 1px solid black;
 	margin: auto;
-	margin-top: 50px;
+	margin-bottom: 20px;
 	box-shadow: 10px 10px 10px #888;
 }
 
@@ -12,12 +12,6 @@
 	background-image: url(/img/coops.png);
 	height: 50px;
 	width: 100px;
-}
-
-.btns {
-	margin: 20px;
-	width: 75px;
-	box-shadow: 10px 10px 10px #888;
 }
 
 #address {

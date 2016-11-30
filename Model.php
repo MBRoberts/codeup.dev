@@ -1,4 +1,5 @@
 <?php
+
 define("DB_HOST", "127.0.0.1");
 define("DB_NAME", "join_test_db");
 define("DB_USER", 'codeup');
