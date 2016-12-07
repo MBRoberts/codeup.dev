@@ -5,6 +5,7 @@ $(document).ready(function(){
 	$.ajax("/data/blog.json").done(function(posts) {
 		
 		var content;
+		console.log(posts);
 		
 		posts.forEach(function(post, index) {
 			
