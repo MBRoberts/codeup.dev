@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    body { padding: 0 2em; }
+    h1 { font-family: monospace; font-size: 2.5em; }
+    h1 small { margin: 0 5em;; }
+    .center {
+        clear: both;
+        text-align: center;
+    }
+
+    .desk{
+        float: left;
+        padding: 2em 1.5em;
+        border: 1px solid black;
+        margin-bottom: 1em;
+        text-align: center;
+        box-sizing: border-box;
+    }
+    .desk:first-child  { margin-left: 20em; }
+    .desk:nth-child(4)  { margin-left: 5em; }
+    .desk:nth-child(4)  { margin-left: 5em; }
+    .desk:nth-child(9)  { clear: left; margin-left: 7em;}
+    .desk:nth-child(14)  { margin-left: 5em; }
+    .desk:nth-child(19)  { clear: left; margin-left: 7em;}
+    .desk:nth-child(24)  { margin-left: 5em; }
+
+
+    </style>
+</head>
+<body>
+    <h1 class="center">
+        <small>Projector Screen</small>
+        Front
+        <small>Projector Screen</small>
+    </h1>
+    <div id="seating-chart"></div>
+    <h1 class="center">Back</h1>
+    
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="js/seatingChart.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="description" content="">
+		<meta name="author" content="Ben Roberts">
+
+		<title>JS only Calculator</title>
+
+		<!-- Bootstrap Core CSS CDN-->
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<style type="text/css">
+			#map-canvas{
+				width:100%;
+				height: 500px;
+				margin: 50px 0;
+			}
+			.input-lg{
+				width:25%;
+			}
+			#infoWindowContent{
+				display: none;
+			}
+		</style>
+
+	</head>
+	<body>
+
+		<div id="map-canvas"></div>
+		<div class="container text-center">
+			<input type="text" id="address" placeholder="Enter Address" class="input-lg">
+			<button class="btn-lg btn-default" id="update">Update Map</button>
+			<h2><label for="zoomIn" class="label label-primary">Zoom:</label><h2>
+			<button class="btn-lg btn btn-primary" id="zoomIn">+</button>
+			<button class="btn-lg btn btn-danger" id="zoomOut">-</button>
+			<div id="infoWindowContent">
+				Info Window Content: <textarea id='windowContent'></textarea> <button class='btn btn-lg' class='submit'>Submit</button>
+			</div>
+		</div>
+		<!-- Jquery.js CDN -->
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+		<!-- Bootstrap.js CDN -->
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_7RtOoqaohsnAdLReUJ_ReW9m8co-Sx0"></script>
+		<script type="text/javascript" src="js/js-only-calc.js"></script>
+
+	</body>
+</html>
