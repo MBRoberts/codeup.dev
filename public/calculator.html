@@ -14,18 +14,11 @@
 		<!-- Custom CSS -->
 		<link rel="stylesheet" type="text/css" href="/css/calculator.css">
 
-
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/3.4.1/math.min.js"></script>
-
-  		<!-- load http://maurizzzio.github.io/function-plot/ -->
-  		<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-  		<script src="https://wzrd.in/standalone/function-plot@1.14.0"></script>
-
 	</head>
 	<body>
-			<div class="jumbotron">
-				<h2 id="answer">JavaScript Calculator</h2>
-			</div>
+		<div class="jumbotron">
+			<h2 id="answer">JavaScript Calculator</h2>
+		</div>
 
 		<div class="container size-container">
 			<div class="container input-display"> 
@@ -33,13 +26,16 @@
 					<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
 						<input type="text" value='' class="input-lg" id="leftOperand" readonly>
 					</div>
+
 					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 						<input type="text" value='' class="input-lg" id="operator" readonly>
 					</div>
+
 					<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
 						<input type="text" value='' class="input-lg" id="rightOperand" readonly>
 					</div>
 				</div><!--/.row-->
+
 				<div class="row">	
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<textarea value='' class="input-lg" id="display" cols="12" rows="1" readonly></textarea>
@@ -58,12 +54,15 @@
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">0</button>
 									</div>
+
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">1</button>
 									</div>
+
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">2</button>
 									</div>
+
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
 										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">3</button>
 									</div>
@@ -71,12 +70,15 @@
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">4</button>
 									</div>
+
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">5</button>
 									</div>
+
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">6</button>
 									</div>
+
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">7</button>
 									</div>
@@ -84,12 +86,15 @@
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">8</button>
 									</div>
+
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">9</button>
 									</div>
+
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">A</button>
 									</div>
+
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">B</button>
 									</div>
@@ -97,40 +102,49 @@
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">C</button>
 									</div>
+
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">D</button>
 									</div>
+
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">E</button>
 									</div>
+
 									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">F</button>
 									</div>
 								</div>
+
 								<div class="row">
 									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">H-D</button>
-									</div>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">H-B</button>
-									</div>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">B-H</button>
-									</div>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">B-D</button>
-									</div>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">D-H</button>
-									</div>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">D-B</button>
+										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons" id="hexToDec">H-D</button>
 									</div>
 
+									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons" id="hexToBin">H-B</button>
+									</div>
+
+									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons" id="binToHex">B-H</button>
+									</div>
+
+									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons" id="binToDec">B-D</button>
+									</div>
+
+									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons" id="decToHex">D-H</button>
+									</div>
+
+									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons" id="decToBin">D-B</button>
+									</div>
 								</div>
+
 								<div class="row">
 									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons hexbuttons">Clear</button>
+										<button type="button" class="hvr-radial-out hvr-wobble-skew numbuttons clear" id="clear">Clear</button>
 									</div>
 								</div>
 							</li>
@@ -143,13 +157,16 @@
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">1</button>
 					</div>
+
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">2</button>
 					</div>
+
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">3</button>
 					</div>
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
+
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 operator">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">+</button>
 					</div>
 				</div><!--/.row-->
@@ -158,13 +175,16 @@
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">4</button>
 					</div>
+
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">5</button>
 					</div>
+
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">6</button>
 					</div>
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
+
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 operator">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">-</button>
 					</div>
 				</div><!--/.row-->
@@ -173,28 +193,34 @@
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">7</button>
 					</div>
+
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">8</button>
 					</div>
+
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">9</button>
 					</div>
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
+
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 operator">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">*</button>
 					</div>
 				</div><!--/.row-->
 
 				<div class="row">
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 clear">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">CE</button>
 					</div>
+
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">0</button>
 					</div>
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
+
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 operator">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">x<sup>y</sup></button>
 					</div>
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
+
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 operator">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">/</button>
 					</div>
 				</div><!--/.row-->
@@ -203,18 +229,21 @@
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">.</button>
 					</div>
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
+
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 percent">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">%</button>
 					</div>
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
+
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 squareRoot">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">&radic;<span>&nbsp;x&nbsp;</span></button>
 					</div>
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 keys">
+
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 signs">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">+/-</button>
 					</div>
 				</div><!--/.row-->
 				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 keys">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 equals">
 						<button type="button" class="hvr-radial-out hvr-wobble-skew numButtons">=</button>
 					</div>
 				</div><!--/.row-->
@@ -227,36 +256,14 @@
 	  				<input class="input-lg" type="text" id="eq" value="4 * sin(x) + 5 * cos(x/2)" />
 	  				<button class="hvr-radial-out hvr-wobble-skew numButtons" type="submit" value="Draw">Draw</button>
 				</form>
-			<div class="input-display graph"id="plot"></div>
+
+				<div class="input-display graph"id="plot"></div>
+			</div>
 		</div><!--/.container size-container-->
 
-
-<script>
-  function draw() {
-    try {
-      functionPlot({
-        target: '#plot',
-        data: [{
-          fn: document.getElementById('eq').value,
-          sampler: 'builtIn',  // this will make function-plot use the evaluator of math.js
-          graphType: 'polyline'
-        }]
-      });
-    }
-    catch (err) {
-      console.log(err);
-      alert(err);
-    }
-  }
-
-  document.getElementById('form').onsubmit = function (event) {
-    event.preventDefault();
-    draw();
-  };
-
-  draw();
-</script>
-
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/3.4.1/math.min.js"></script>
+  		<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  		<script src="https://wzrd.in/standalone/function-plot@1.14.0"></script>
 		<script src="/js/jquery.min.js"></script>
 		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="/js/calculator.js"></script>
